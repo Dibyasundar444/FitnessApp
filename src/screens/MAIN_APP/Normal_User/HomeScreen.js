@@ -7,70 +7,28 @@ import {
     StyleSheet,
     ScrollView 
 } from 'react-native';
-import Entypo from 'react-native-vector-icons/Entypo';
-import Fontisto from 'react-native-vector-icons/Fontisto';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import LinearGradient from 'react-native-linear-gradient';
 import SubmitBtn from '../../../utils/Submit_Btn';
-import St_Line from '../../../utils/St_Line';
+import Icon_Bell from '../../../assets/Icons/Icon_Bell.svg';
+import Icon_Alarm from '../../../assets/Icons/Icon_Alarm.svg';
+import Icon_Heart from '../../../assets/Icons/Icon_Heart.svg';
+import Icon_Fire from '../../../assets/Icons/Icon_Fire.svg';
+import Icon_Shoe from '../../../assets/Icons/Icon_Shoe.svg';
+import Icon_Menu from '../../../assets/Icons/Icon_Menu.svg';
+
 
 
 import { STYLES } from '../../../common_STYLES/style';
 import BoxHeader from '../../../utils/BoxHeader';
 import Box from '../../../utils/Box';
+import { ButtonColor, LightGray } from '../../../utils/Color';
+import PopularDoctors from '../../../utils/PopularDoctors';
+import PopularProducts from '../../../utils/PopularProducts';
+import Header from '../../../utils/Header';
+import Background from '../../../common_STYLES/CommonBackground';
+import { DOCTORS, PRODUCTS, VIDEOS } from '../../../DummyData/data';
 
-const DOCTORS = [
-    {
-        "id": "0",
-        "img": require("../../../assets/Doctors/doctor1.jpg"),
-        "name": "Dr. Tarun Mullins",
-        "desc": "Sports Medicine",
-        'rating': 4.2
-    },
-    {
-        "id": "1",
-        "img": require("../../../assets/Doctors/doctor2.jpg"),
-        "name": "Dr. Tarun Mullins",
-        "desc": "Sports Medicine",
-        'rating': 4.2
-    },
-    {
-        "id": "2",
-        "img": require("../../../assets/Doctors/doctor3.jpg"),
-        "name": "Dr. Tarun Mullins",
-        "desc": "Sports Medicine",
-        'rating': 4.2
-    }
-];
-const PRODUCTS = [
-    {
-        "id": "0",
-        "img": require("../../../assets/Products/med1.jpg"),
-        "text1": "Diabetes, Dietary",
-        "text2": "Supplements",
-        'text3': "4DM",
-        "price": "1,999.00"
-    },
-    {
-        "id": "1",
-        "img": require("../../../assets/Products/med2.jpg"),
-        "text1": "Diabetes, Dietary",
-        "text2": "Supplements",
-        'text3': "4DM",
-        "price": "1,999.00"
-    },
-    {
-        "id": "2",
-        "img": require("../../../assets/Products/med1.jpg"),
-        "text1": "Diabetes, Dietary",
-        "text2": "Supplements",
-        'text3': "4DM",
-        "price": "1,999.00"
-    }
-];
+
 
 export default function HomeScreen({navigation}) {
 
@@ -93,7 +51,7 @@ export default function HomeScreen({navigation}) {
                         <TouchableOpacity
                             style={styles.heart}
                         >
-                            <AntDesign name='hearto' color="#fff" size={20} />
+                            <Icon_Heart />
                         </TouchableOpacity>
                         <Text style={styles.rate}>78</Text>
                         <View>
@@ -107,7 +65,7 @@ export default function HomeScreen({navigation}) {
                         <TouchableOpacity
                             style={styles.heart}
                         >
-                            <MaterialCommunityIcons name='shoe-print' color="#fff" size={24} />
+                            <Icon_Shoe />
                         </TouchableOpacity>
                         <Text style={styles.rate}>2586</Text>
                         <View>
@@ -122,7 +80,7 @@ export default function HomeScreen({navigation}) {
                         <TouchableOpacity
                             style={styles.heart}
                         >
-                            <SimpleLineIcons name='fire' color="#fff" size={22} />
+                            <Icon_Fire />
                         </TouchableOpacity>
                         <Text style={styles.rate}>596</Text>
                         <View>
@@ -135,11 +93,11 @@ export default function HomeScreen({navigation}) {
                         <TouchableOpacity
                             style={styles.heart}
                         >
-                            <Ionicons name='alarm-outline' color="#fff" size={24} />
+                            <Icon_Alarm />
                         </TouchableOpacity>
                         <Text style={styles.rate}>90</Text>
                         <View>
-                            <Text style={styles.heartTxt}>WPRK</Text>
+                            <Text style={styles.heartTxt}>WORK</Text>
                             <Text style={styles.heartTxt}>MIN</Text>
                         </View>
                     </View>
@@ -148,129 +106,74 @@ export default function HomeScreen({navigation}) {
         </View>
     );
 
-    const PopularDoctors=()=>(
+    const TopNews=()=>(
         <View style={{
             marginTop:40
         }}>
             <BoxHeader 
-                title="Popular Doctors"
-                rightTxt="See all"
-                isRight={true}
+                title="Top News Today's"
                 nav={()=>{}}
             />
             <View style={{marginTop:20}}>
                 <Box 
-                    DATA={DOCTORS}
-                    isDoctor
+                    DATA={VIDEOS}
+                    isVideos
                 />
             </View>
         </View>
     );
 
-    const PopularProducts=()=>(
-        <View style={{
-            marginTop:40
-        }}>
-            <BoxHeader 
-                title="Popular Products"
-                rightTxt="See all"
-                isRight={true}
-                nav={()=>{}}
-            />
-            <View style={{marginTop:20}}>
-                <Box 
-                    DATA={PRODUCTS}
-                    isProduct
-                />
-            </View>
-        </View>
-    );
+    const Body=()=>{
+        return(
+            <>
+                <Header isHome />
+                <View style={{flex:1,marginHorizontal:20}}>
+                    <ScrollView
+                        contentContainerStyle={{paddingBottom:80}}
+                        showsVerticalScrollIndicator={false}
+                    >
+                        <Text style={{color:"#fff",fontSize:10,marginTop:40}}>@ross Blog</Text>
+                        <Text style={{color:"#fff",fontSize:30,letterSpacing:3,fontWeight:"700"}}>BORN</Text>
+                        <Text style={{color:"#fff",fontSize:30,letterSpacing:3,fontWeight:"700"}}>FITNESS</Text>
+                        <Text style={{fontSize:13}}>
+                            qwertyuiopa sdfghjklzxc vbnmertyui odxcgvhjh hsd hs s s sjbsjbsdcbsdbshsb s bs sdn
+                            bcbccjcjsbsjc s sm  m, s,cncjbcjbs djchjvsdhbsdj cbajkbacjba cbmbccjdb,mkjsbsd mabcjd 
+                            ccmbcjsd sdbsdjsdsdc sdccnsdcchch sdjbcjs dccdvhjbcd j hbhs csdcc
+                            chjvchj dbcsdbc kjsdbccsd ccbhscbjsc j bsdjcbsdcn hbs  bsjcbh.
+                        </Text>
+                        <View style={{alignItems:"center"}}>
+                            <SubmitBtn 
+                                width="40%"
+                                backgroundColor="#fff"
+                                paddingVertical= {8}
+                                marginTop= {10}
+                                borderRadius= {10}
+                                marginBottom={20}
+                                TEXT="Read More"
+                                color={ButtonColor}
+                                fontWeight='500'
+                                letterSpacing={1}
+                                fontSize={12}
+                            />
+                        </View>
+                        <DailyNotivation />
+                        <PopularDoctors 
+                            DOCTORS={DOCTORS}
+                            SCREEN="Home"
+                        />
+                        <PopularProducts 
+                            PRODUCTS={PRODUCTS}
+                        />
+                        <TopNews />
+                    </ScrollView>
+                </View>
+            </>
+        );
+    }
 
   return (
     <View style={STYLES.container}>
-        <ImageBackground 
-            source={require('../../../assets/yoga1.jpg')} 
-            style={{height:"100%",width:"100%"}} 
-            resizeMode="cover"
-        >
-            <LinearGradient 
-                colors={['rgba(0,0,0,0.4)', 'rgba(0,0,0,0.4)', 'rgba(0,0,0,1)']} 
-                style={{flex:1}}
-                start={{x: 0.2, y: 0.0}} end={{x: 0.1, y: 1.0}}
-                locations={[0,0.4,0.8]}
-            >
-                <View style={{flex:1,backgroundColor:"rgba(0,0,0,0.3)"}}>
-                    <View
-                        style={{
-                            flexDirection:"row",
-                            alignItems:"center",
-                            justifyContent:"space-between",
-                            marginTop:20,
-                            marginHorizontal:20
-                        }}
-                    >
-                        <TouchableOpacity
-                            style={{
-                                justifyContent:"center",
-                                alignItems:"center",
-                                height:40,
-                                width:40,
-                                borderRadius:20,
-                                backgroundColor:"#454443"
-                            }}
-                        >
-                            <Entypo name='menu' color="#fff" size={20} />
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            style={{
-                                justifyContent:"center",
-                                alignItems:"center",
-                                height:40,
-                                width:40,
-                                borderRadius:20,
-                                backgroundColor:"#454443"
-                            }}
-                        >
-                            <Fontisto name='bell' color="#fff" size={18} />
-                        </TouchableOpacity>
-                    </View>
-                    <View style={{flex:1,marginHorizontal:20}}>
-                        <ScrollView
-                            contentContainerStyle={{paddingBottom:50}}
-                            showsVerticalScrollIndicator={false}
-                        >
-                            <Text style={{color:"#fff",fontSize:10,marginTop:40}}>@ross Blog</Text>
-                            <Text style={{color:"#fff",fontSize:30,letterSpacing:3,fontWeight:"700"}}>BORN</Text>
-                            <Text style={{color:"#fff",fontSize:30,letterSpacing:3,fontWeight:"700"}}>FITNESS</Text>
-                            <Text style={{fontSize:13}}>
-                                qwertyuiopa sdfghjklzxc vbnmertyui odxcgvhjh hsd hs s s sjbsjbsdcbsdbshsb s bs sdn
-                                bcbccjcjsbsjc s sm  m, s,cncjbcjbs djchjvsdhbsdj cbajkbacjba cbmbccjdb,mkjsbsd mabcjd 
-                                ccmbcjsd sdbsdjsdsdc sdccnsdcchch sdjbcjs dccdvhjbcd j hbhs csdcc
-                                chjvchj dbcsdbc kjsdbccsd ccbhscbjsc j bsdjcbsdcn hbs  bsjcbh.
-                            </Text>
-                            <View style={{alignItems:"center"}}>
-                                <SubmitBtn 
-                                    width="40%"
-                                    backgroundColor="#fff"
-                                    paddingVertical= {8}
-                                    marginTop= {10}
-                                    borderRadius= {10}
-                                    marginBottom={20}
-                                    TEXT="Read More"
-                                    color="#ed4d21"
-                                    fontWeight='500'
-                                    letterSpacing={1}
-                                    fontSize={12}
-                                />
-                            </View>
-                            <DailyNotivation />
-                            <PopularDoctors />
-                            <PopularProducts />
-                        </ScrollView>
-                    </View>
-                </View>
-            </LinearGradient>
-        </ImageBackground>
+        <Background MainBody={<Body />} />
     </View>
   );
 }
@@ -290,10 +193,10 @@ const styles = StyleSheet.create({
         letterSpacing:2
     },
     heart: {
-        height:40,
-        width:40,
-        backgroundColor:"#454443",
-        borderRadius: 20,
+        height:45,
+        width:45,
+        backgroundColor:LightGray,
+        borderRadius: 45/2,
         justifyContent:"center",
         alignItems:"center"
     }

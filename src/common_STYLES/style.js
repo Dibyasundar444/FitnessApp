@@ -1,3 +1,5 @@
+import { LightYellow } from "../utils/Color";
+
 export const STYLES = {
     container: {
         flex: 1,
@@ -20,7 +22,7 @@ export const STYLES = {
                     alignItems: "center"
                 },
                 textInput: {
-                    borderColor: "#ed9d26",
+                    borderColor: LightYellow,
                     color: "#fff",
                     width: "85%",
                     borderWidth: 1,

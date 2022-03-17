@@ -9,11 +9,10 @@ import HomeScreen from '../HomeScreen';
 
 const Stack = createNativeStackNavigator();
 
-export default function AppStack() {
+export default function HomeStack() {
   return (
     <View style={{flex:1,backgroundColor:"#000"}}>
         <Stack.Navigator screenOptions={{headerShown: false}}>
-            <Stack.Screen name="SubmitDetails" component={SubmitDetails} />
             <Stack.Screen name="HomeScreen" component={HomeScreen} />
         </Stack.Navigator>
     </View>

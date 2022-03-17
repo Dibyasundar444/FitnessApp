@@ -48,7 +48,7 @@ export default function OTP_verification({navigation}) {
                 fontWeight='700'
                 letterSpacing={1}
                 fontSize={16}
-                CLICK={()=>navigation.navigate('NormalUser')}
+                CLICK={()=>navigation.navigate('SubmitDetails')}
             />
             <Text style={{color:"#fff"}}>Re-send OTP (00:{counter})</Text>
         </View>

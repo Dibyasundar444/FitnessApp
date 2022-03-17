@@ -12,6 +12,7 @@ import {
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import { STYLES } from '../../../../common_STYLES/style';
+import { ButtonColor } from '../../../../utils/Color';
 import Dots from '../../../../utils/Dots';
 import St_Line from '../../../../utils/St_Line';
 import SubmitBtn from '../../../../utils/Submit_Btn';
@@ -56,7 +57,7 @@ export default function Information({nav}) {
                 <View style={STYLES.body.user.signUp.flexEnd}>
                     <SubmitBtn 
                         width="85%"
-                        backgroundColor="#ed4d21"
+                        backgroundColor={ButtonColor}
                         paddingVertical= {12}
                         marginTop= {10}
                         borderRadius= {10}

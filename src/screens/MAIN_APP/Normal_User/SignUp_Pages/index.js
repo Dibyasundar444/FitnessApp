@@ -40,11 +40,11 @@ export default function SubmitDetails({navigation}) {
         nextButton
     >
         <Information 
-            nav={()=>navigation.navigate('HomeScreen')} 
+            nav={()=>navigation.navigate('NormalUser')} 
         />
         <Interests />
         <HealthDetails 
-            nav={()=>navigation.navigate('HomeScreen')} 
+            nav={()=>navigation.navigate('NormalUser')} 
         />
     </Swiper>
   );
